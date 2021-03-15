@@ -1,5 +1,8 @@
 from partie import *
+from welcome import *
 
 def main():
-    Partie()
+    #Lancement de la fenêtre
+    Welcome()
+
 main()
