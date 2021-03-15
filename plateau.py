@@ -2,8 +2,8 @@ from case import *
 class Plateau :
         def __init__(self,nb) :
            self.__noir__=2
-           self.__rouge__=2 
-           self.__nb__=nb   
+           self.__blanc__=2 
+           self.__nb__= nb   
            self.__caseAJouer__=0
            self.__list__=[[0 for i in range(nb)] for j in range(nb)]
            for i in range(nb):
@@ -11,9 +11,9 @@ class Plateau :
                         if i==(nb/2)-1 and y==(nb/2)-1:
                                 self.__list__[i][y]=Case(i,y,"noir") 
                         elif i==(nb/2) and y==(nb/2)-1:
-                                self.__list__[i][y]=Case(i,y,"rouge") 
+                                self.__list__[i][y]=Case(i,y,"blanc") 
                         elif i==(nb/2)-1 and y==(nb/2):
-                                self.__list__[i][y]=Case(i,y,"rouge") 
+                                self.__list__[i][y]=Case(i,y,"blanc") 
                         elif i==(nb/2) and y==(nb/2):
                                 self.__list__[i][y]=Case(i,y,"noir") 
                         else:
@@ -24,8 +24,8 @@ class Plateau :
                 return self.__list__
         def getnb(self):
                 return self.__nb__
-        def getrouge(self):
-                return self.__rouge__
+        def getBlanc(self):
+                return self.__blanc__
         def getnoir(self):
                 return self.__noir__
         def getCaseAJouer(self):
@@ -36,7 +36,7 @@ class Plateau :
                 
 
 
-        def affichage(self) :
+        def affichage(self, choix) :
 
                 print("\n ", end="   ")
                 for x in range(1, self.getnb()+1):
@@ -48,10 +48,10 @@ class Plateau :
                         for y in range (self.getnb()) :
                                 if  ( self.getList()[x][y].get_CaseCouleur()=="noir"):
                                         print("x", end="  ")
-                                elif  ( self.getList()[x][y].get_CaseCouleur()=="rouge"):
+                                elif  ( self.getList()[x][y].get_CaseCouleur()=="blanc"):
                                         print("o", end="  ")
-                                elif len(self.getList()[x][y].get_coupAJouer())>0:
-                                        print("k", end="  ")
+                                elif len(self.getList()[x][y].get_coupAJouer())>0 and choix == "Avant":
+                                        print("*", end="  ")
                                 elif ( self.getList()[x][y].get_CaseCouleur()=="vide"):
                                         print(".", end="  ")
 
@@ -59,16 +59,17 @@ class Plateau :
                 if couleur=="noir":
                         self.__noir__ +=1
                 else:
-                        self.__rouge__ +=1
+                        self.__blanc__ +=1
         
         def pionEnMoins(self,couleur,nombre):
                 if couleur=="noir":
-                        self.__rouge__ -=1
+                        self.__blanc__ -=1
                 else:
                         self.__noir__ -=1
+
         def couleurOppose(self,couleur):
                 if couleur=="noir":
-                        return "rouge"
+                        return "blanc"
                 else:
                         return"noir"
 
@@ -175,6 +176,7 @@ class Plateau :
                                                                         i+=1
                                                                 else:
                                                                         break
+
                                         ##en bas a droite
                                         if x<self.getnb()-1 and y < self.getnb()-1 :  
                                                 if self.getList()[x][y].get_CaseCouleur()==couleurOppose :
@@ -234,7 +236,7 @@ class Plateau :
         
                 
 
-        def check(self,x,y,couleur):
+        def check(self, x, y, couleur):
                 if x<1 or y<1 or x>self.getnb()or  y >self.getnb():
                         print("Oh cette case est hors limite")
                         return False
@@ -363,31 +365,18 @@ class Plateau :
                                         self.getList()[x-2-z][y-2-z].set_CaseCouleur(couleurOppose)
 
 
-
-
-
-
         def unGagnant(self):
                 if self.getnoir()==0:
                         return True
-                elif self.getrouge()==0:
+                elif self.getBlanc()==0:
                         return True
                 else:
                         return False
+
         def quiEstLeGagnant(self):
-                if self.getnoir()>self.getrouge():
+                if self.getnoir()>self.getBlanc():
                         print("Et le grand gagnant est le joueur 1 ")
-                elif self.getnoir()<self.getrouge():
+                elif self.getnoir()<self.getBlanc():
                         print("Et le grand gagnant est le joueur 2 ")
                 else:
                         print("Nous avons une égalité")
-
-     
-                
-
-                
-
-
-
-        
-   
