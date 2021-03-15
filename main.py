@@ -3,6 +3,6 @@ from welcome import *
 
 def main():
     #Lancement de la fenêtre
-    Welcome()
+    Welcome() 
 
 main()
