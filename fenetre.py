@@ -12,6 +12,7 @@ class Fenetre():
         #Configuration de la fenêtre
         self.__fenetre__ = Tk()
         form_arriere_plan = Canvas(self.__fenetre__,bg='#271549',height=700,width=1000)
+        self.__fenetre__.resizable(width=1000, height=700)
 
         #Ajout du logo Epsi
         self.import_logo_epsi()
