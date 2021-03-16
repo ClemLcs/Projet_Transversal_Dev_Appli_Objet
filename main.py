@@ -1,5 +1,5 @@
-from partie import *
+from fenetre import Fenetre
 
 def main():
-    Partie()
+    Fenetre()
 main()

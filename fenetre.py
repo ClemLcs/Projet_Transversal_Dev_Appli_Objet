@@ -1,5 +1,5 @@
 from tkinter import *
-class Fenetre():
+class Fenetre(object):
     
     __fenetre__ = None
     __form_arriere_plan__ = None
