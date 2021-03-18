@@ -1,11 +1,7 @@
 from tkinter import *
+import time
 class Fenetre(object):
     
-    __fenetre__ = None
-    __form_arriere_plan__ = None
-    __image_epsi__ = None
-    __bouton_quitter__ = None
-
     #Constructeur
     def __init__(self):
 

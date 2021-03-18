@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\media"
   ],
-  "SelectedNode": "\\fenetre.py",
+  "SelectedNode": "\\main.py",
   "PreviewInSolutionExplorer": false
 }
