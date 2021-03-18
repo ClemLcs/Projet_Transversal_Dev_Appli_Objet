@@ -25,7 +25,7 @@ class Partie:
             Jeu.PeutOnRetourner(laCouleur)
             Jeu.affichage("Avant")
 
-            if Jeu.getCaseAJouer()>0:
+            if Jeu.caseAJouer>0:
 
                 while True :
                     saisie = input("\n\nChoississez une case (ex : 3 5) : ").split()
@@ -55,4 +55,4 @@ class Partie:
                     passerSonTour +=1
                 tour+=1
 
-        Jeu.quiEstGagnant()
+        Jeu.quiEstLeGagnant()
