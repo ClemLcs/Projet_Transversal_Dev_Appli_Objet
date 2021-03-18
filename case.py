@@ -1,23 +1,31 @@
 class Case:
     def __init__(self,x,y,couleur) :
-            self.__x__=x
-            self.__y__=y
-            self.__couleur__= couleur
+            self.__x=x
+            self.__y=y
+            self.__couleur= couleur
             self.__coupAJouer=[]
     
+    @property
+    def x(self):
+        return self.coords[0]
 
-
-    def get_CaseY(self):
-        return self.__x__
+    @property
+    def x(self):
+        return self.__x
     
-    def get_coupAJouer(self):
+    @property
+    def coupAJouer(self):
         return self.__coupAJouer
     
-    def get_CaseX(self):
-        return self.__y__
-    
-    def get_CaseCouleur(self):
-        return self.__couleur__
+    @property
+    def y(self):
+        return self.__y
 
-    def set_CaseCouleur(self,couleur):
-        self.__couleur__=couleur 
+    @property
+    def couleur(self):
+        return self.__couleur
+    
+    
+    @couleur.setter
+    def couleur(self,value):
+        self.__couleur= value
