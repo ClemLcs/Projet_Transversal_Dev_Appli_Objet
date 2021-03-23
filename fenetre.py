@@ -2,35 +2,56 @@ from tkinter import *
 import time
 class Fenetre(object):
     
-    #Constructeur
-    def __init__(self):
+    #----------------
 
-        #Configuration de la fenêtre
-        self.__fenetre__ = Tk()
-        form_arriere_plan = Canvas(self.__fenetre__,bg='#271549',height=700,width=1000)
-        self.__fenetre__.resizable(width=False, height=False)
+    def __init__(self, main):
 
-        #Ajout du logo Epsi
-        self.import_logo_epsi()
-        self.add_logo_epsi(form_arriere_plan)
+        # Ajout de l'arrière plan
+        self.canvas = Canvas(main, bg='#271549', width=1000, height=700)
+        self.canvas.grid(row=0, column=0)
 
-        #Ajout du bouton quitter
-        self.bouton_quitter()
-        self.__fenetre__.mainloop()
+        # Listes des images
+        self.my_images = []
+        self.my_images.append(PhotoImage(file = "media/logo-0.png"))
+        self.my_images.append(PhotoImage(file = "media/logo-10.png"))
+        self.my_images.append(PhotoImage(file = "media/logo-20.png"))
+        self.my_images.append(PhotoImage(file = "media/logo-30.png"))
+        self.my_images.append(PhotoImage(file = "media/logo-40.png"))
+        self.my_images.append(PhotoImage(file = "media/logo-50.png"))
+        self.my_images.append(PhotoImage(file = "media/logo-60.png"))
+        self.my_images.append(PhotoImage(file = "media/logo-70.png"))
+        self.my_images.append(PhotoImage(file = "media/logo-80.png"))
+        self.my_images.append(PhotoImage(file = "media/logo-90.png"))
+        self.my_images.append(PhotoImage(file = "media/logo-100.png"))
+        self.my_image_number = 0
 
-    #Fonction qui permet de fermer le programme
-    def bouton_quitter(self) :
-        self.__bouton_quitter__= Button(self.__fenetre__, text='Quitter', command=self.__fenetre__.destroy)
-        self.__bouton_quitter__.pack()
+        # Ajout de la première image
+        self.image_on_canvas = self.canvas.create_image(100, 100, anchor = NW, image = self.my_images[self.my_image_number])
 
-    #Fonction qui importe le logo de l'epsi
-    def import_logo_epsi(self):
-        self.__image_epsi__ = PhotoImage(file="media/logo.png")
- 
-    #Fonction qui ajoute  à l'écran le logo de l'epsi
-    def add_logo_epsi(self, form1):
-        form1.create_image(500, 400, image = self.__image_epsi__)
-        form1.pack()
+        # Ajout du bouton changer
+        self.button = Button(main, text="Changer l'image", command=self.onButton)
+        self.button.grid(row=1, column=0)
+
+
+    def onButton(self):
+
+        # image suivante
+        self.my_image_number += 1
+
+        # retourne la première image
+        if self.my_image_number == len(self.my_images):
+            self.my_image_number = 0
+
+        # Change l'image
+        self.canvas.itemconfig(self.image_on_canvas, image = self.my_images[self.my_image_number])
+
+
+
+
+        
+            
+            
+
 
         
 
