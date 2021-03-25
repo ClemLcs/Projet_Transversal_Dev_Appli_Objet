@@ -3,7 +3,7 @@ import time
 import os
 root = Tk()
 
-frames = [PhotoImage(file='./media/logo-epsi-gif.gif',format = 'gif -index %i' %(i)) for i in range(21)]
+frames = [PhotoImage(file='./media/gif.gif',format = 'gif -index %i' %(i)) for i in range(21)]
 
 def update(ind):
     try: 
@@ -11,9 +11,8 @@ def update(ind):
         ind += 1
         print(ind)
         label.configure(image=frame)
-        root.after(200, update, ind)
-        if ind == 11:
-            time.sleep(2)
+        root.after(100, update, ind)
+       
     except:
         pass
     
