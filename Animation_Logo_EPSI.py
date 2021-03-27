@@ -15,7 +15,7 @@ class Animation_Logo_EPSI(object):
         self.label.pack()
         try:
             self.fenetre.after(0, self.update, 0)
-            epsi.bouton_quitter()
+            self.quitter()
         except IndexError:
           print("Error found")
 
@@ -32,7 +32,7 @@ class Animation_Logo_EPSI(object):
             self.fenetre.after(100, self.update, ind)
 
     #Fonction qui permet de fermer le programme
-    def bouton_quitter(self) :
+    def quitter(self) :
         self.bouton_quitter = Button(self.fenetre, text='Quitter', command=self.fenetre.destroy)
         self.bouton_quitter.pack()
 
