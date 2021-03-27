@@ -16,13 +16,13 @@ class Animation_Logo_EPSI(object):
         try:
             self.fenetre.after(0, self.update, 0)
             self.quitter()
-        except IndexError:
+        except Exception as e:
           print("Error found")
 
     #Fonction qui importe les frames du logo de l'epsi
     def update(self, ind):
         if ind == len(self.frames):
-            raise IndexError
+            return IndexError
         else:
             if ind == 11:
                 time.sleep(2)
