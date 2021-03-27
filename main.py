@@ -1,5 +1,5 @@
 from tkinter import *
-from Animation_Logo_EPSI import Animation_Logo_EPSI
+from Animation_Introduction import Animation_Introduction
 import time
 import os
 
@@ -7,9 +7,7 @@ import os
 def main():
 
     root = Tk()
-       
-    Animation_Logo_EPSI(root)
-
+    Animation_Introduction(root)
     root.mainloop()
 
 main()

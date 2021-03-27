@@ -2,14 +2,14 @@ from tkinter import *
 import time
 import os
 
-class Animation_Logo_EPSI(object):
+class Animation_Introduction(object):
         
     #Constructeur
     def __init__(self, fenetre):
         
         self.fenetre = fenetre
             
-        self.frames = [PhotoImage(file='./media/gif.gif',format = 'gif -index %i' %(i)) for i in range(21)]
+        self.frames = [PhotoImage(file='./media/gif.gif',format = 'gif -index %i' %(i)) for i in range(40)]
 
         self.label = Label(self.fenetre, bg='#271748', width=1000, height=700)
         self.label.pack()
@@ -24,7 +24,9 @@ class Animation_Logo_EPSI(object):
         if ind == len(self.frames):
             return IndexError
         else:
-            if ind == 11:
+            if ind == 11 or ind == 31:
+                time.sleep(5)
+            if ind == 21:
                 time.sleep(2)
             frame = self.frames[ind]
             ind += 1
