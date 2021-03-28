@@ -199,7 +199,7 @@ class Partie(object):
                 print("Taille du plateau invalide")
 
         print("\nBonne chance !")
-        print("PS : Appyuer sur ctrl+c puis sur la touche Entrer pour quitter et sauvegarder\n")
+        print("PS : Appuyer sur ctrl+c pour quitter et sauvegarder\n")
         sleep(2)
             
         # On cree le plateau 
